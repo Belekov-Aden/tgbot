@@ -64,7 +64,10 @@ async def see_my_apps(message: types.Message) -> None:
     inlinekb = types.InlineKeyboardMarkup(row_width=4)
     for user in await get_users_app(id=message.from_user.id):
         await inlineKeyboardsApps(name=user.name, ikb=inlinekb)
-    await message.answer(text=messages.MESSAGES['my_apps'],
+    if len(inlinekb.inline_keyboard) == 0:
+        await message.answer(text=messages.MESSAGES['empty_apps'])
+    else:
+        await message.answer(text=messages.MESSAGES['my_apps'],
                          reply_markup=inlinekb)
 
 
@@ -86,7 +89,10 @@ async def delet_app_from_bd(message: types.Message) -> None:
     inlinekb = types.InlineKeyboardMarkup(row_width=4)
     for user in await get_users_app(id=message.from_user.id):
         await inlineKeyboardsAppsDelete(name=user.name, ikb=inlinekb)
-    await message.answer(text=messages.MESSAGES['new_app_names'],
+    if len(inlinekb.inline_keyboard) == 0:
+        await message.answer(text=messages.MESSAGES['empty_apps'])
+    else:
+        await message.answer(text=messages.MESSAGES['new_app_names'],
                          reply_markup=inlinekb)
 
 

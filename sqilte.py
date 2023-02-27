@@ -55,6 +55,7 @@ async def get_users_app(id: int):
     return NameApp.select(NameApp.name, NameApp.password).where(NameApp.users==idusers)
 
 
+
 async def delete_app_from_db(id: int, name: str, password: str) -> None:
     idusers = Users.select(Users.id).where(Users.id_users == id).get()
     return NameApp.delete().where(NameApp.users==idusers, NameApp.name==name, NameApp.password==password).execute()

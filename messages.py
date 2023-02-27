@@ -10,6 +10,7 @@ help_message = '''
 '''
 start_message = 'Здравствуйте! Я бот-менеджер паролей, рад вас приветствовать!\nЯ могу помочь вам сохранить и организовать ваши пароли.\nЕсли хочешь воспользоваться нажми на команду /new_app'
 
+empty_apps = 'У вас нет, приложении.Создайте при помощи команды /new_app'
 
 gen_password = 'Ваша генерация пароля...\n{}'
 
@@ -25,5 +26,6 @@ MESSAGES = {
     'succesful':succesful,
     'new_app_names': new_app_names,
     'new_app_password': new_app_password,
-    'my_apps':my_apps
+    'my_apps':my_apps,
+    'empty_apps': empty_apps
 }
